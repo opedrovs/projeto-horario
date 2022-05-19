@@ -3,6 +3,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Poiret+One&display=swap');
 
 body {
+    position: relative;
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -18,16 +19,23 @@ h1 {
     color: white;
 }
 
+.container {
+    position: relative;
+    height: 95vh;
+}
+
+.item {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
 @keyframes bgchance {
     0% {background-color: rgb(89, 89, 89)}
-
     20% {background-color: rgb(17, 175, 196)}
-
     40% {background-color: rgb(6, 100, 6)}
-
     60% {background-color: rgb(65, 52, 148)}
-
     80% {background-color: rgb(156, 30, 156)}
-
     100% {background-color: rgb(212, 86, 64)}
 }

@@ -1,13 +1,25 @@
-function carregar() {
-    function zeroAEsquerda(num) {
-        return num >= 10 ? num : `0${num}`
+function relogio() {
+    function retornaHora() {
+        const data = new Date();
+        return data.toLocaleTimeString('pt-BR', {
+            hour12: false,
+            timeZone: 'UTC'
+        });
     }
 
-    let horario = window.document.getElementById('horario')
-    let data = new Date()
-    let hora = zeroAEsquerda(data.getHours())
-    let min = zeroAEsquerda(data.getMinutes())
-    let seg = zeroAEsquerda(data.getSeconds())
-
-    horario.innerHTML = `<h1>${hora} : ${min} : ${seg}</h1>` 
+    const relogio = document.querySelector('.relogio');
+    let segundos = 0;
+    let timer;
+    
+    function iniciarRelogio() {
+        timer = setInterval(function() {
+            segundos++;
+            relogio.innerHTML = `${retornaHora(segundos)}`;
+        }, 1000);
+    }
+    
+    window.onload = function() {
+       relogio.innerHTML = `${iniciarRelogio()}`;
+    }
 }
+relogio();
